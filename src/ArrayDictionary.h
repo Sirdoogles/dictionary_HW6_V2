@@ -156,23 +156,17 @@ public:
 
     bool remove(KeyType const &key) override {
         // homework
-        int removeCount = 0;
-        for(int i = 0; i < capacity; i++)
-        {
-            Entry<KeyType, ValueType> *ptr = entries[i];
-
-            if(ptr == nullptr)
-            {
-                continue;
-            }
-
-            if(ptr->key == key)
-            {
-                deleteEntry(entries[i - 1]); //TODO, Verify and check.
-                entries[i] == nullptr;
-                removeCount++;
+        int hashInput = hashFunc(key);
+        bool testFirst = contain(key);
+        if(testFirst) {
+            for (int i = 0; i < capacity; i++) {
+                if (entries[i] == entries[hashInput]) {
+                    deleteEntry(entries[i]);
+                    entries[i] == nullptr;
+                    return true;
+                }
             }
         }
-        return (removeCount > 0);
+        return false;
     }
 };
