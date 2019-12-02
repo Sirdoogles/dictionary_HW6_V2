@@ -130,6 +130,9 @@ TEST(dict, remove_case1) {
     ArrayDictionary<int, int> hashTable;
 
     ASSERT_FALSE(hashTable.remove(10));
+    #ifdef PRINT
+    hashTable.print();
+#endif
 }
 
 TEST(dict, remove_case2) {
@@ -139,6 +142,9 @@ TEST(dict, remove_case2) {
     hashTable.add(2,207);
     hashTable.add(3,308);
     ASSERT_TRUE(hashTable.remove(3));
+    #ifdef PRINT
+    hashTable.print();
+#endif
 }
 
 TEST(dict, remove_case3) {
@@ -148,6 +154,9 @@ TEST(dict, remove_case3) {
     hashTable.add(2,207);
     hashTable.add(3,308);
     ASSERT_FALSE(hashTable.remove(4));
+    #ifdef PRINT
+    hashTable.print();
+#endif
 }
 
 TEST(dict, remove_case4) {
@@ -159,6 +168,9 @@ TEST(dict, remove_case4) {
     hashTable.add(3,308);
 
     ASSERT_TRUE(hashTable.remove(2));
+    #ifdef PRINT
+    hashTable.print();
+#endif
 }
 
 TEST(dict, remove_case5) {
@@ -169,4 +181,7 @@ TEST(dict, remove_case5) {
     hashTable.add(2,210); // Collision
     hashTable.add(3,308);
     ASSERT_FALSE(hashTable.remove(4));
+    #ifdef PRINT
+    hashTable.print();
+#endif
 }
